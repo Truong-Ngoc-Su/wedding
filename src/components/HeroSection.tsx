@@ -49,22 +49,22 @@ export default function HeroSection() {
       <div className="text-center max-w-2xl mx-auto pt-4 sm:pt-8">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-[#C9A46A]/30 shadow-sm mb-4">
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
-          <span className="font-poppins text-[11px] sm:text-xs tracking-[0.25em] text-[#A37E3E] uppercase font-medium">
-            Save The Date • Royal Wedding
+          <span className="font-poppins text-[10px] sm:text-xs tracking-[0.16em] text-[#A37E3E] uppercase font-medium">
+            Trân trọng báo hỷ
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
         </div>
 
         <p className="font-cormorant text-lg sm:text-xl text-[#5C524A] tracking-wider italic">
-          Together with our families, we invite you to celebrate the wedding of
+          Trân trọng kính mời quý khách đến chung vui trong ngày thành hôn của
         </p>
 
         {/* Couple Names */}
         <div className="relative py-2 my-1">
-          <h1 className="font-great-vibes text-6xl sm:text-7xl md:text-8xl text-[#2D2622] tracking-normal leading-tight drop-shadow-sm">
+          <h1 className="mx-auto max-w-full whitespace-nowrap font-great-vibes text-[clamp(2.7rem,7.5vw,5rem)] text-[#2D2622] tracking-normal leading-tight drop-shadow-sm">
             {GROOM_NAME}
-            <span className="inline-flex items-center justify-center mx-3 sm:mx-4 align-middle">
-              <Heart className="w-7 h-7 sm:w-10 sm:h-10 text-[#B76E79] fill-[#B76E79] animate-pulse" />
+            <span className="inline-flex items-center justify-center mx-1.5 sm:mx-4 align-middle">
+              <Heart className="w-5 h-5 sm:w-10 sm:h-10 text-[#B76E79] fill-[#B76E79] animate-pulse" />
             </span>
             {BRIDE_NAME}
           </h1>
@@ -114,30 +114,15 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* Action Buttons & Countdown Glance */}
+      {/* Countdown Glance */}
       <div className="w-full max-w-md mx-auto flex flex-col items-center gap-4 z-20">
-        <div className="flex items-center justify-center gap-4 w-full px-4">
-          <button
-            onClick={() => scrollTo("story")}
-            className="flex-1 py-3 px-5 rounded-full bg-white/80 hover:bg-white text-[#2D2622] border border-[#C9A46A]/50 font-poppins text-xs sm:text-sm font-medium tracking-wide shadow-sm hover:shadow-md transition-all text-center"
-          >
-            Our Story
-          </button>
-          {/* <button
-            onClick={() => scrollTo("rsvp")}
-            className="flex-1 py-3 px-5 rounded-full bg-gradient-to-r from-[#C9A46A] via-[#DFBE85] to-[#B58742] text-[#2D2622] font-poppins text-xs sm:text-sm font-semibold tracking-wider shadow-lg hover:shadow-[#C9A46A]/40 transition-all text-center"
-          >
-            RSVP Now
-          </button> */}
-        </div>
-
         {/* Scroll indicator */}
         <button
           onClick={() => scrollTo("blessings")}
-          aria-label="Scroll to blessings section"
+          aria-label="Cuộn đến phần lời chúc"
           className="mt-2 text-[#7F8D70] hover:text-[#C9A46A] transition-colors flex flex-col items-center gap-1"
         >
-          <span className="text-[10px] tracking-widest uppercase font-poppins">Scroll to Explore</span>
+          <span className="text-[10px] tracking-widest uppercase font-poppins">Mời quý khách cùng xem</span>
           <ChevronDown className="w-4 h-4 animate-bounce" />
         </button>
       </div>

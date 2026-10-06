@@ -2,17 +2,10 @@
 
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import confetti from "canvas-confetti";
-import { Calendar, Clock, Sparkles, Heart } from "lucide-react";
+import { Clock, Sparkles, Heart } from "lucide-react";
 import {
   WEDDING_DATETIME_ISO,
   WEDDING_DATE_DISPLAY,
-  WEDDING_CALENDAR_DATES,
-  GROOM_NAME,
-  BRIDE_NAME,
-  VENUE_FULL_ADDRESS,
-  VENUE_CITY,
-  VENUE_STATE,
-  TAGLINE,
   VENUE_NAME,
 } from "@/lib/wedding-config";
 
@@ -45,6 +38,10 @@ const SCRATCH_THRESHOLD = 0.50;
 
 interface ScratchCardProps {
   onReveal: () => void;
+}
+
+interface CountdownSectionProps {
+  onRevealed?: () => void;
 }
 
 function ScratchCard({ onReveal }: ScratchCardProps) {
@@ -102,11 +99,11 @@ function ScratchCard({ onReveal }: ScratchCardProps) {
 
     ctx.fillStyle = "#DFBE85";
     ctx.font = "600 11px 'Poppins', sans-serif";
-    ctx.fillText("✦  SCRATCH TO REVEAL  ✦", W / 2, H / 2 - 20);
+    ctx.fillText("✦  DÙNG NGÓN TAY CÀO ĐỂ MỞ THIỆP  ✦", W / 2, H / 2 - 20);
 
     ctx.fillStyle = "rgba(223,190,133,0.6)";
     ctx.font = "italic 10px 'Poppins', sans-serif";
-    ctx.fillText("✦ our special day", W / 2, H / 2 - 4);
+    ctx.fillText("Cào nhẹ lớp phủ để xem ngày vui", W / 2, H / 2 - 4);
 
     // Finger / scratch icon
     ctx.font = "22px serif";
@@ -209,7 +206,7 @@ function ScratchCard({ onReveal }: ScratchCardProps) {
 }
 
 // ─── Main Section ──────────────────────────────────────────────────────────────
-export default function CountdownSection() {
+export default function CountdownSection({ onRevealed }: CountdownSectionProps) {
   const weddingDate = new Date(WEDDING_DATETIME_ISO).getTime();
 
   const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
@@ -239,25 +236,14 @@ export default function CountdownSection() {
   const handleReveal = useCallback(() => {
     setRevealed(true);
     fireWeddingConfetti();
-  }, []);
-
-  const handleGoogleCalendar = () => {
-    const title = encodeURIComponent(`${GROOM_NAME} ❤️ ${BRIDE_NAME} Wedding Celebration`);
-    const details = encodeURIComponent(
-      `Together with our families, we invite you to celebrate the wedding of ${GROOM_NAME} & ${BRIDE_NAME} on ${WEDDING_DATE_DISPLAY}. ${TAGLINE}`
-    );
-    const location = encodeURIComponent(VENUE_FULL_ADDRESS);
-    window.open(
-      `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${WEDDING_CALENDAR_DATES}&details=${details}&location=${location}`,
-      "_blank"
-    );
-  };
+    onRevealed?.();
+  }, [onRevealed]);
 
   const counterItems = [
-    { label: "Days", value: timeLeft.days },
-    { label: "Hrs", value: timeLeft.hours },
-    { label: "Mins", value: timeLeft.minutes },
-    { label: "Secs", value: timeLeft.seconds },
+    { label: "Ngày", value: timeLeft.days },
+    { label: "Giờ", value: timeLeft.hours },
+    { label: "Phút", value: timeLeft.minutes },
+    { label: "Giây", value: timeLeft.seconds },
   ];
 
   return (
@@ -269,15 +255,15 @@ export default function CountdownSection() {
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-[#C9A46A]/30 shadow-sm mb-3">
           <Clock className="w-3.5 h-3.5 text-[#C9A46A]" />
-          <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#A37E3E] font-poppins font-medium">
-            Counting Down Every Moment
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.16em] text-[#A37E3E] font-poppins font-medium">
+            Đếm ngược từng khoảnh khắc
           </span>
         </div>
         <h2 className="font-cormorant text-3xl sm:text-5xl text-[#2D2622] font-medium">
-          Until We Say &ldquo;I Do&rdquo;
+          Đếm ngược đến ngày thành hôn
         </h2>
-        <p className="font-poppins text-xs sm:text-sm text-[#5C524A] max-w-md mx-auto mt-2">
-          The Auspicious Wedding Muhurat
+        <p className="font-great-vibes text-4xl sm:text-5xl text-[#A37E3E] max-w-md mx-auto mt-1 leading-tight">
+          Ngọc Sự &amp; Kim Oanh
         </p>
       </div>
 
@@ -294,14 +280,14 @@ export default function CountdownSection() {
               border: "1.5px solid rgba(201,164,106,0.35)",
             }}
           >
-            <span className="font-poppins text-[10px] tracking-[0.3em] uppercase text-[#A37E3E] font-semibold">
-              Save the Date
+            <span className="font-poppins text-[10px] tracking-[0.16em] uppercase text-[#A37E3E] font-semibold">
+              Lưu ngày vui
             </span>
-            <p className="font-great-vibes text-4xl sm:text-5xl text-[#2D2622] leading-tight">
+            <p className="font-cormorant tabular-nums text-3xl sm:text-4xl font-semibold text-[#2D2622] leading-tight">
               {WEDDING_DATE_DISPLAY}
             </p>
-            <span className="font-poppins text-[10px] tracking-[0.2em] uppercase text-[#7F8D70]">
-              {VENUE_NAME}, {VENUE_CITY}
+            <span className="font-poppins text-[10px] tracking-[0.12em] uppercase text-[#7F8D70]">
+              {VENUE_NAME}
             </span>
           </div>
 
@@ -317,12 +303,12 @@ export default function CountdownSection() {
           }`}
       >
         {/* Divider label */}
-        <div className="flex items-center justify-center gap-3 mb-8">
-          <span className="h-px w-12 sm:w-20 bg-gradient-to-r from-transparent to-[#C9A46A]" />
-          <span className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-[#A37E3E] font-poppins font-semibold flex items-center gap-1.5">
-            <Sparkles className="w-3 h-3" /> The Countdown Begins <Sparkles className="w-3 h-3" />
+        <div className="flex items-center justify-center gap-2 sm:gap-3 mb-8">
+          <span className="h-px w-6 sm:w-20 bg-gradient-to-r from-transparent to-[#C9A46A]" />
+          <span className="whitespace-nowrap text-[10px] sm:text-xs uppercase tracking-[0.14em] text-[#A37E3E] font-poppins font-semibold flex items-center gap-1.5">
+          <Sparkles className="w-3 h-3" /> Cùng đếm ngược <Sparkles className="w-3 h-3" />
           </span>
-          <span className="h-px w-12 sm:w-20 bg-gradient-to-l from-transparent to-[#C9A46A]" />
+          <span className="h-px w-6 sm:w-20 bg-gradient-to-l from-transparent to-[#C9A46A]" />
         </div>
 
         {/* Counter tiles */}
@@ -335,12 +321,12 @@ export default function CountdownSection() {
                 style={{ animationDelay: `${idx * 80}ms` }}
               >
                 <span
-                  className={`font-cormorant text-4xl sm:text-6xl font-bold text-[#2D2622] leading-none tracking-tight transition-transform ${item.label === "Secs" && mounted ? "group-hover:scale-110" : ""
+                  className={`font-cormorant tabular-nums text-4xl sm:text-6xl font-bold text-[#2D2622] leading-none tracking-tight transition-transform ${item.label === "Giây" && mounted ? "group-hover:scale-110" : ""
                     }`}
                 >
                   {mounted ? item.value.toString().padStart(2, "0") : "--"}
                 </span>
-                <span className="text-[9px] sm:text-[11px] uppercase tracking-[0.25em] text-[#A37E3E] font-poppins font-medium">
+                <span className="text-[9px] sm:text-[11px] uppercase tracking-[0.12em] text-[#A37E3E] font-poppins font-medium">
                   {item.label}
                 </span>
                 {/* Divider between items (not after last) */}
@@ -355,28 +341,18 @@ export default function CountdownSection() {
           {mounted && (
             <div className="flex items-center justify-center gap-1.5 mt-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#C9A46A] animate-ping" />
-              <span className="text-[10px] font-poppins text-[#7F8D70] tracking-wider uppercase">Live</span>
+              <span className="text-[10px] font-poppins text-[#7F8D70] tracking-wider uppercase">Đang đếm ngược</span>
             </div>
           )}
         </div>
 
         {/* Tagline */}
-        <p className="font-great-vibes text-2xl sm:text-3xl text-[#2D2622] mt-6 flex items-center justify-center gap-2">
+        <p className="font-great-vibes text-2xl sm:text-3xl text-[#2D2622] mt-6 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
           <Heart className="w-4 h-4 text-[#B76E79] fill-[#B76E79]" />
-          Until our forever begins
+          Đếm ngược đến ngày vui của chúng mình
           <Heart className="w-4 h-4 text-[#B76E79] fill-[#B76E79]" />
         </p>
 
-        {/* Add to Calendar */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <button
-            onClick={handleGoogleCalendar}
-            className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white hover:bg-[#FCFAF7] border border-[#C9A46A] text-[#2D2622] font-poppins text-xs sm:text-sm font-medium tracking-wide shadow-sm hover:shadow-md transition-all"
-          >
-            <Calendar className="w-4 h-4 text-[#C9A46A]" />
-            <span>Add to Google Calendar</span>
-          </button>
-        </div>
       </div>
     </section>
   );

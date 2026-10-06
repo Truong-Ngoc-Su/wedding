@@ -3,11 +3,10 @@
 import React, { useEffect, useState } from "react";
 import {
   Home,
-  BookOpen,
   CalendarDays,
-  Image as GalleryIcon,
+  MapPin,
+  Gift,
   HeartHandshake,
-  PhoneCall,
 } from "lucide-react";
 
 interface NavItem {
@@ -17,12 +16,11 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { id: "hero", label: "Home", icon: <Home className="w-4 h-4" /> },
-  { id: "story", label: "Story", icon: <BookOpen className="w-4 h-4" /> },
-  { id: "events", label: "Events", icon: <CalendarDays className="w-4 h-4" /> },
-  { id: "gallery", label: "Gallery", icon: <GalleryIcon className="w-4 h-4" /> },
-  // { id: "rsvp", label: "RSVP", icon: <HeartHandshake className="w-4 h-4" /> },
-  { id: "contact", label: "Contact", icon: <PhoneCall className="w-4 h-4" /> },
+  { id: "hero", label: "Trang chủ", icon: <Home className="w-4 h-4" /> },
+  { id: "events", label: "Chương trình", icon: <CalendarDays className="w-4 h-4" /> },
+  { id: "venue", label: "Địa điểm", icon: <MapPin className="w-4 h-4" /> },
+  { id: "rsvp", label: "Xác nhận", icon: <HeartHandshake className="w-4 h-4" /> },
+  { id: "gifts", label: "Mừng cưới", icon: <Gift className="w-4 h-4" /> },
 ];
 
 export default function BottomNav() {

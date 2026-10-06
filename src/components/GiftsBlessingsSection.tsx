@@ -1,85 +1,44 @@
-"use client";
+import Image from "next/image";
+import { Gift, Heart, QrCode } from "lucide-react";
+import { BRIDE_GIFT, GROOM_GIFT } from "@/lib/wedding-config";
 
-import React, { useState } from "react";
-import { Sparkles, Heart, Gift, QrCode, Copy, Check } from "lucide-react";
-import { UPI_ID } from "@/lib/wedding-config";
+const gifts = [
+  { label: "Mừng cưới chú rể", detail: GROOM_GIFT },
+  { label: "Mừng cưới cô dâu", detail: BRIDE_GIFT },
+];
 
 export default function GiftsBlessingsSection() {
-  const [showQR, setShowQR] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyUPI = () => {
-    navigator.clipboard.writeText(UPI_ID);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section id="blessings-gift" className="relative py-20 sm:py-24 px-4 max-w-4xl mx-auto text-center">
-      {/* Section Container */}
-      <div className="glass-card rounded-3xl p-8 sm:p-14 border border-[#C9A46A]/35 shadow-xl relative overflow-hidden">
-        {/* Top Gold Bar */}
-        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#C9A46A] to-transparent" />
-
-        <div className="w-14 h-14 rounded-full bg-[#DFBE85]/20 border border-[#C9A46A]/40 flex items-center justify-center mx-auto mb-6 text-[#A37E3E]">
-          <Gift className="w-7 h-7" />
-        </div>
-
-        <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#A37E3E] font-poppins font-medium">
-          With Gratitude &amp; Humility
-        </span>
-
-        <h2 className="font-cormorant text-3xl sm:text-5xl text-[#2D2622] font-medium mt-2 mb-4">
-          Your Presence Is Our Greatest Gift
-        </h2>
-
-        <p className="font-poppins text-xs sm:text-sm text-[#5C524A] max-w-lg mx-auto leading-relaxed">
-          Having you celebrate by our side, sharing laughs, memories, and prayers for our future, is more meaningful to us than anything else in the world.
+    <section id="gifts" className="relative mx-auto max-w-5xl px-4 py-20 text-center sm:py-28">
+      <div className="mb-10">
+        <p className="font-poppins text-[10px] font-medium uppercase tracking-[0.3em] text-[#A37E3E]">Mừng cưới</p>
+        <h2 className="mt-2 font-cormorant text-4xl font-medium text-[#2D2622] sm:text-6xl">Lời chúc &amp; quà mừng</h2>
+        <p className="mx-auto mt-3 max-w-xl font-poppins text-sm leading-relaxed text-[#5C524A]">
+          Sự hiện diện của quý khách là món quà quý giá nhất. Nếu muốn gửi lời chúc hoặc quà mừng từ xa, gia đình xin phép được đón nhận tại đây.
         </p>
+      </div>
 
-        {/* Traditional No Boxed Gifts Badge */}
-        <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/80 border border-[#A8B59A]/40 text-xs font-poppins text-[#7F8D70] shadow-sm my-6">
-          <Heart className="w-3.5 h-3.5 text-[#B76E79] fill-[#B76E79]" />
-          <span>Blessings Only • No Boxed Gifts Please</span>
-        </div>
-
-        {/* Optional Shagun Blessing QR Toggle */}
-        <div className="mt-4">
-          <button
-            onClick={() => setShowQR(!showQR)}
-            className="text-xs font-poppins text-[#A37E3E] hover:text-[#2D2622] transition-colors underline underline-offset-4 inline-flex items-center gap-1.5"
-          >
-            <QrCode className="w-4 h-4" />
-            <span>{showQR ? "Hide Traditional Shagun Option" : "Optional Traditional Shagun / Ashirwad"}</span>
-          </button>
-
-          {showQR && (
-            <div className="mt-6 p-6 rounded-2xl bg-[#FCFAF7] border border-[#C9A46A]/30 max-w-xs mx-auto shadow-inner animate-fadeIn">
-              <div className="w-40 h-40 bg-white rounded-xl border-2 border-[#C9A46A]/30 p-2 mx-auto flex items-center justify-center shadow-sm">
-                {/* Clean Vector QR Placeholder with Couple Initials */}
-                <div className="w-full h-full border border-dashed border-[#DFBE85] rounded-lg flex flex-col items-center justify-center text-center p-2">
-                  <QrCode className="w-16 h-16 text-[#C9A46A] mb-1" />
-                  <span className="font-great-vibes text-sm text-[#2D2622]">M &amp; N</span>
-                  <span className="text-[9px] font-mono text-[#7F8D70]">{UPI_ID}</span>
+      <div className="grid gap-8 md:grid-cols-2 md:px-12">
+        {gifts.map(({ label, detail }) => (
+          <article key={label} className="glass-card rounded-3xl border border-[#C9A46A]/35 px-8 py-10 shadow-xl">
+            <Gift className="mx-auto h-6 w-6 text-[#C9A46A]" />
+            <h3 className="mt-4 font-great-vibes text-4xl text-[#A37E3E]">{label}</h3>
+            <div className="mx-auto mt-7 flex h-40 w-40 items-center justify-center rounded-2xl border-2 border-[#C9A46A]/30 bg-white p-2 shadow-sm">
+              {detail.qrImage ? (
+                <Image src={detail.qrImage} alt={`Mã QR mừng cưới ${detail.name}`} width={144} height={144} unoptimized className="h-full w-full rounded-lg object-contain" />
+              ) : (
+                <div className="flex h-full w-full flex-col items-center justify-center rounded-xl border border-dashed border-[#C9A46A]/45 bg-[#FCFAF7] text-[#A37E3E]">
+                  <QrCode className="h-12 w-12" />
+                  <span className="mt-2 font-poppins text-[10px]">Sẽ cập nhật mã QR</span>
                 </div>
-              </div>
-
-              <div className="mt-4 flex items-center justify-center gap-2">
-                <span className="font-mono text-xs text-[#2D2622]">{UPI_ID}</span>
-                <button
-                  onClick={handleCopyUPI}
-                  className="p-1.5 rounded-lg bg-white border border-[#C9A46A]/30 hover:bg-[#FCFAF7] text-[#C9A46A] transition-colors"
-                  aria-label="Copy UPI ID"
-                >
-                  {copied ? <Check className="w-3.5 h-3.5 text-green-600" /> : <Copy className="w-3.5 h-3.5" />}
-                </button>
-              </div>
-              <p className="text-[10px] font-poppins text-[#7F8D70] mt-2">
-                For elder relatives wishing to bestow sacred contactless Shagun.
-              </p>
+              )}
             </div>
-          )}
-        </div>
+            <p className="mt-6 font-cormorant text-2xl font-semibold text-[#2D2622]">{detail.name}</p>
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#C9A46A]/25 bg-white/75 px-4 py-2 font-poppins text-[11px] text-[#7F8D70]">
+              <Heart className="h-3.5 w-3.5 fill-[#B76E79] text-[#B76E79]" /> Lời chúc của quý khách là niềm vui của chúng mình
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );

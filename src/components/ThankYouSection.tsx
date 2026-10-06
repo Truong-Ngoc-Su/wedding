@@ -6,8 +6,7 @@ import {
   GROOM_NAME,
   BRIDE_NAME,
   WEDDING_DATE_DISPLAY,
-  VENUE_CITY,
-  VENUE_STATE,
+  VENUE_NAME,
   HASHTAG,
 } from "@/lib/wedding-config";
 
@@ -47,31 +46,31 @@ export default function ThankYouSection({ onReopenEnvelope }: ThankYouSectionPro
       <div className="max-w-2xl mx-auto my-auto space-y-6">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/80 border border-[#C9A46A]/30 shadow-sm">
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
-          <span className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-[#A37E3E] font-poppins font-medium">
-            Forever In Our Hearts
+          <span className="text-[10px] sm:text-xs uppercase tracking-[0.15em] text-[#A37E3E] font-poppins font-medium">
+            Trân trọng cảm ơn
           </span>
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
         </div>
 
         <h2 className="font-cormorant text-4xl sm:text-6xl text-[#2D2622] font-medium leading-tight">
-          Thank You For Celebrating With Us
+          Cảm ơn quý khách đã đến chung vui
         </h2>
 
         <p className="font-poppins text-xs sm:text-sm text-[#5C524A] max-w-md mx-auto leading-relaxed">
-          We cannot wait to embrace you in {VENUE_CITY}, dance with all our hearts, and embark upon this sacred journey surrounded by your love.
+          Sự hiện diện và những lời chúc tốt đẹp của quý khách là niềm hạnh phúc lớn lao đối với gia đình chúng mình.
         </p>
 
         {/* Names */}
         <div className="pt-2">
-          <p className="font-great-vibes text-5xl sm:text-7xl text-[#2D2622]">
+          <p className="whitespace-nowrap font-great-vibes text-[clamp(2.25rem,10vw,4.5rem)] text-[#2D2622]">
             {GROOM_NAME}
             <span className="inline-flex items-center justify-center mx-3 align-middle">
               <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-[#B76E79] fill-[#B76E79]" />
             </span>
             {BRIDE_NAME}
           </p>
-          <p className="font-cormorant text-lg sm:text-xl text-[#A37E3E] tracking-widest uppercase font-semibold mt-2">
-            {WEDDING_DATE_DISPLAY} • {VENUE_CITY}, {VENUE_STATE}
+          <p className="font-cormorant text-lg sm:text-xl text-[#A37E3E] tracking-[0.12em] font-semibold mt-2">
+            {WEDDING_DATE_DISPLAY} • {VENUE_NAME}
           </p>
         </div>
 
@@ -83,7 +82,7 @@ export default function ThankYouSection({ onReopenEnvelope }: ThankYouSectionPro
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white hover:bg-[#FCFAF7] border border-[#C9A46A] text-[#2D2622] font-poppins text-xs font-medium shadow-sm transition-all"
             >
               <MailOpen className="w-4 h-4 text-[#C9A46A]" />
-              <span>Replay Invitation Envelope</span>
+              <span>Mở lại thiệp mời</span>
             </button>
           )}
 
@@ -92,14 +91,14 @@ export default function ThankYouSection({ onReopenEnvelope }: ThankYouSectionPro
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#2D2622] text-white hover:bg-[#4A4540] font-poppins text-xs font-medium shadow-md transition-all"
           >
             <ArrowUp className="w-4 h-4" />
-            <span>Back to Top</span>
+            <span>Về đầu trang</span>
           </button>
         </div>
       </div>
 
       {/* Bottom Copyright & Design Credit */}
       <div className="w-full pt-10 text-center border-t border-[#C9A46A]/10 text-[11px] font-poppins text-[#7F8D70]">
-        <p>Crafted with endless love for {GROOM_NAME} &amp; {BRIDE_NAME} • {HASHTAG}</p>
+        <p>Trân trọng cảm ơn • {GROOM_NAME} &amp; {BRIDE_NAME} • {HASHTAG}</p>
       </div>
     </footer>
   );

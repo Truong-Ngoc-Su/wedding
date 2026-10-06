@@ -7,8 +7,7 @@ import {
   BRIDE_NAME,
   TAGLINE,
   WEDDING_DATE_DISPLAY,
-  VENUE_CITY,
-  VENUE_STATE,
+  VENUE_NAME,
   WEDDING_YEAR,
 } from "@/lib/wedding-config";
 
@@ -102,16 +101,16 @@ export default function EnvelopeSplash({ onOpen, isOpen }: EnvelopeSplashProps) 
 
       {/* Top Auspicious Header Banner */}
       <div className="text-center mb-6 sm:mb-8 animate-fadeIn pointer-events-none">
-        <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/95 border border-[#C9A46A]/50 text-xs tracking-[0.25em] uppercase font-poppins text-[#A37E3E] shadow-md mb-3">
+        <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/95 border border-[#C9A46A]/50 text-[10px] sm:text-xs tracking-[0.15em] uppercase font-poppins text-[#A37E3E] shadow-md mb-3">
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
-          <span>The Royal Wedding Invitation</span>
+          <span>Thiệp mời thành hôn</span>
           <Sparkles className="w-3.5 h-3.5 text-[#C9A46A]" />
         </div>
         <h2 className="font-cormorant text-2xl sm:text-4xl text-[#2D2622] font-semibold tracking-wide">
           {GROOM_NAME} <span className="text-[#C9A46A] font-great-vibes text-3xl sm:text-5xl align-middle mx-1">&amp;</span> {BRIDE_NAME}
         </h2>
         <p className="font-poppins text-xs text-[#7F8D70] tracking-[0.2em] uppercase mt-1 font-medium">
-          • {VENUE_CITY}, {VENUE_STATE}
+          • {VENUE_NAME}
         </p>
       </div>
 
@@ -181,16 +180,16 @@ export default function EnvelopeSplash({ onOpen, isOpen }: EnvelopeSplashProps) 
           <div className="w-full flex items-center justify-center gap-2 pt-0.5">
             <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-r from-transparent to-[#C9A46A]" />
             <span className="font-cormorant text-[11px] sm:text-xs text-[#A37E3E] font-semibold tracking-widest">
-              || श्री गणेशाय नमः ||
+              Trăm năm hạnh phúc
             </span>
             <span className="h-[1px] w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#C9A46A]" />
           </div>
 
           <div className="my-2">
-            <p className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-[#A37E3E] font-poppins font-medium">
-              Together With Our Families
+            <p className="text-[10px] sm:text-xs uppercase tracking-[0.15em] text-[#A37E3E] font-poppins font-medium">
+              Trân trọng kính mời
             </p>
-            <h1 className="font-great-vibes text-4xl sm:text-5xl text-[#2D2622] my-1 font-normal leading-tight drop-shadow-sm">
+            <h1 className="mx-auto max-w-full whitespace-nowrap font-great-vibes text-[clamp(1.8rem,9vw,3.1rem)] text-[#2D2622] my-1 font-normal leading-tight drop-shadow-sm">
               {GROOM_NAME} &amp; {BRIDE_NAME}
             </h1>
             <p className="font-cormorant text-xs sm:text-sm text-[#5C524A] italic max-w-[280px] mx-auto">
@@ -200,7 +199,7 @@ export default function EnvelopeSplash({ onOpen, isOpen }: EnvelopeSplashProps) 
 
           <div className="w-full border-t border-[#C9A46A]/30 pt-3">
             <p className="text-[11px] text-[#7F8D70] tracking-wider uppercase font-poppins font-medium">
-              {VENUE_CITY} • {VENUE_STATE}
+              {VENUE_NAME}
             </p>
           </div>
         </div>
@@ -250,12 +249,12 @@ export default function EnvelopeSplash({ onOpen, isOpen }: EnvelopeSplashProps) 
         <div className="mt-8 sm:mt-10 text-center z-40">
           <div className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#C9A46A] via-[#DFBE85] to-[#B58742] text-[#2D2622] font-poppins text-xs sm:text-sm font-semibold tracking-wide shadow-xl hover:shadow-[#C9A46A]/50 hover:scale-105 transition-all">
             <Sparkles className="w-4 h-4 text-[#2D2622]" />
-            <span>Tap Anywhere to Open Invitation</span>
+            <span>Chạm để mở thiệp mời</span>
             <Heart className="w-3.5 h-3.5 text-[#B76E79] fill-[#B76E79]" />
           </div>
           <p className="text-[11px] text-[#7F8D70] tracking-wider mt-2.5 font-poppins font-medium flex items-center justify-center gap-1.5">
             <Music className="w-3.5 h-3.5 text-[#C9A46A]" />
-            <span>Instrumental music begins upon opening</span>
+            <span>Nhạc nền sẽ phát khi mở thiệp</span>
           </p>
         </div>
       )}

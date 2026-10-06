@@ -11,7 +11,7 @@ export default function MusicPlayer({ shouldAutoStart = false }: MusicPlayerProp
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.4);
   const [showVolume, setShowVolume] = useState(false);
-  const [trackName, setTrackName] = useState("Shehnai & Flute Wedding Raag");
+  const trackName = "Nhạc nền lễ cưới";
 
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const synthCtxRef = useRef<AudioContext | null>(null);
@@ -178,12 +178,12 @@ export default function MusicPlayer({ shouldAutoStart = false }: MusicPlayerProp
 
   return (
     <>
-      {/* Hidden audio element with royalty-free traditional Indian wedding instrumental */}
+      {/* Nhạc nền được lưu cục bộ trong public/music */}
       <audio
         ref={audioRef}
-        src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=indian-meditation-ambient-flute-112191.mp3"
+        src="/music/wedding-song.mp3"
         loop
-        preload="auto"
+        preload="metadata"
         onError={() => {
           // If remote track fails, fallback smoothly to web audio synthesizer
           if (isPlaying) {

@@ -25,20 +25,20 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Mayank ❤️ Nikita | Wedding Invitation — 20 February 2027",
+  title: "Ngọc Sự ❤️ Kim Oanh | Thiệp cưới",
   description:
-    "Together with our families, we invite you to celebrate the wedding of Mayank and Nikita on 20 February 2027. Two hearts. One journey. Forever begins.",
+    "Trân trọng kính mời quý khách đến chung vui trong lễ thành hôn của Ngọc Sự và Kim Oanh.",
   keywords: [
-    "Mayank and Nikita Wedding",
-    "Indian Wedding Invitation",
-    "Luxury Wedding Website",
+    "Ngọc Sự Kim Oanh",
+    "Thiệp cưới",
+    "Lễ thành hôn",
     "20 February 2027",
-    "Mayank Nikita RSVP",
+    "Đăng ký tham dự lễ cưới",
   ],
-  authors: [{ name: "Mayank & Nikita" }],
+  authors: [{ name: "Ngọc Sự & Kim Oanh" }],
   openGraph: {
-    title: "Mayank ❤️ Nikita — Royal Wedding Invitation",
-    description: "Two hearts. One journey. Forever begins. Join us in celebrating our wedding on 20 February 2027.",
+    title: "Ngọc Sự ❤️ Kim Oanh — Thiệp cưới",
+    description: "Trân trọng kính mời quý khách đến chung vui trong lễ thành hôn.",
     type: "website",
     locale: "en_US",
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
         url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
         width: 1200,
         height: 630,
-        alt: "Mayank ❤️ Nikita Wedding Celebration",
+        alt: "Ngọc Sự và Kim Oanh",
       },
     ],
   },
