@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     images: [
       {
-        url: "https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop",
+        url: "/imgs/IMG_0577.JPG",
         width: 1200,
         height: 630,
         alt: "Ngọc Sự và Kim Oanh",

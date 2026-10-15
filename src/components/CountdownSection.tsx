@@ -6,6 +6,7 @@ import { Clock, Sparkles, Heart } from "lucide-react";
 import {
   WEDDING_DATETIME_ISO,
   WEDDING_DATE_DISPLAY,
+  WEDDING_TIME_DISPLAY,
   VENUE_NAME,
 } from "@/lib/wedding-config";
 
@@ -284,7 +285,7 @@ export default function CountdownSection({ onRevealed }: CountdownSectionProps) 
               Lưu ngày vui
             </span>
             <p className="font-cormorant tabular-nums text-3xl sm:text-4xl font-semibold text-[#2D2622] leading-tight">
-              {WEDDING_DATE_DISPLAY}
+              {WEDDING_TIME_DISPLAY} • {WEDDING_DATE_DISPLAY}
             </p>
             <span className="font-poppins text-[10px] tracking-[0.12em] uppercase text-[#7F8D70]">
               {VENUE_NAME}

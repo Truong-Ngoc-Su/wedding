@@ -20,9 +20,11 @@ export const WEDDING_EMAIL = "";
 
 // ─── Dates ───────────────────────────────────────────────────
 /** ISO datetime of the main wedding ceremony (used for countdown) */
-export const WEDDING_DATETIME_ISO = "2026-10-30T18:00:00+07:00";
+export const WEDDING_DATETIME_ISO = "2026-10-30T11:00:00+07:00";
 /** Human-readable display date shown throughout the site */
 export const WEDDING_DATE_DISPLAY = "30 tháng 10, 2026";
+/** Main ceremony start time for date-and-time displays */
+export const WEDDING_TIME_DISPLAY = "11 giờ 00";
 /** Short year used in badges / seals */
 export const WEDDING_YEAR = "2026";
 /** Calendar date range (UTC) for the main wedding ceremony */
@@ -40,31 +42,31 @@ export const VENUE_MAP_EMBED_URL = "https://www.google.com/maps?q=14.5753508,109
 // ─── Celebration Schedule ───────────────────────────────────
 export const CELEBRATION_SCHEDULE = [
   {
-    time: "17:30",
+    time: "10:30",
     title: "Đón khách",
-    description: "Kính mời quý khách check-in, chụp ảnh và gặp gỡ gia đình hai bên trong không gian tiệc ấm cúng.",
+    description: "Kính mời quý khách check-in, chụp ảnh và gặp gỡ gia đình hai bên trước khi buổi lễ bắt đầu.",
     icon: "📸",
   },
   {
-    time: "18:10",
+    time: "11:00",
     title: "Lễ thành hôn",
     description: "Nghi thức chính bắt đầu với lời chào của gia đình, lời hẹn ước của cô dâu chú rể và nghi thức trao nhẫn.",
     icon: "💍",
   },
   {
-    time: "18:45",
+    time: "11:20",
     title: "Khai tiệc",
-    description: "Cùng nâng ly chúc mừng, dùng tiệc tối và chia sẻ niềm vui trong một buổi tối ấm cúng, thân mật.",
+    description: "Cùng nâng ly chúc mừng, dùng tiệc trưa và chia sẻ niềm vui trong không gian ấm cúng, thân mật.",
     icon: "🥂",
   },
   {
-    time: "20:00",
+    time: "11:40",
     title: "Nghi thức cắt bánh",
     description: "Khoảnh khắc nhỏ nhưng đáng nhớ, đánh dấu ngày chính thức bắt đầu hành trình mới của hai đứa.",
     icon: "🎂",
   },
   {
-    time: "21:15",
+    time: "13:00",
     title: "Gửi lời cảm ơn",
     description: "Cô dâu chú rể gửi lời cảm ơn đến từng vị khách đã có mặt và cùng khép lại buổi tiệc bằng những cái ôm thân tình.",
     icon: "🧡",
@@ -74,7 +76,7 @@ export const CELEBRATION_SCHEDULE = [
 export const VENUE_MOMENTS = [
   {
     title: "Lễ cưới nhà gái",
-    time: "26/10/2026",
+    time: "28/10/2026",
     description: "Tư gia nữ",
     icon: "🏠",
   },
@@ -87,7 +89,7 @@ export const VENUE_MOMENTS = [
 ] as const;
 
 // ─── Gifts / UPI ─────────────────────────────────────────────
-export const GROOM_GIFT = { name: GROOM_NAME, qrImage: "" };
+export const GROOM_GIFT = { name: GROOM_NAME, qrImage: "/imgs/IMG_1361.JPG" };
 export const BRIDE_GIFT = { name: BRIDE_NAME, qrImage: "" };
 /** Google Apps Script Web App URL for guest lookup and RSVP submission. */
 export const GOOGLE_APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL ?? "";
@@ -98,7 +100,7 @@ export const COUPLE_PORTRAIT_URL =
 
 /** Flat list of event titles used by the currently disabled RSVP form */
 export const RSVP_EVENTS_LIST = [
-  "Lễ cưới nhà gái (26/10/2026)",
+  "Lễ cưới nhà gái (28/10/2026)",
   "Lễ cưới nhà trai (30/10/2026)",
 ];
 
