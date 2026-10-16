@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import {
   Home,
-  CalendarDays,
   MapPin,
   Gift,
   HeartHandshake,
@@ -17,7 +16,6 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { id: "hero", label: "Trang chủ", icon: <Home className="w-4 h-4" /> },
-  { id: "events", label: "Chương trình", icon: <CalendarDays className="w-4 h-4" /> },
   { id: "venue", label: "Địa điểm", icon: <MapPin className="w-4 h-4" /> },
   { id: "rsvp", label: "Xác nhận", icon: <HeartHandshake className="w-4 h-4" /> },
   { id: "gifts", label: "Mừng cưới", icon: <Gift className="w-4 h-4" /> },

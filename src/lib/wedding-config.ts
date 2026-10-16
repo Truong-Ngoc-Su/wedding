@@ -90,7 +90,10 @@ export const VENUE_MOMENTS = [
 
 // ─── Gifts / UPI ─────────────────────────────────────────────
 export const GROOM_GIFT = { name: GROOM_NAME, qrImage: "/imgs/IMG_1361.JPG" };
-export const BRIDE_GIFT = { name: BRIDE_NAME, qrImage: "" };
+export const BRIDE_GIFT = {
+  name: BRIDE_NAME,
+  qrImage: "/imgs/f90b8860-e8fb-4b28-a77f-0800d27ad993.jpg",
+};
 /** Google Apps Script Web App URL for guest lookup and RSVP submission. */
 export const GOOGLE_APPS_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_APPS_SCRIPT_URL ?? "";
 

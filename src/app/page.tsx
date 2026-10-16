@@ -6,7 +6,6 @@ import PetalCanvas from "@/components/PetalCanvas";
 import MusicPlayer from "@/components/MusicPlayer";
 import HeroSection from "@/components/HeroSection";
 import CountdownSection from "@/components/CountdownSection";
-import OrderOfEvents from "@/components/OrderOfEvents";
 import VenueDetails from "@/components/VenueDetails";
 import PreWeddingMoments from "@/components/PreWeddingMoments";
 import DressCodeSection from "@/components/DressCodeSection";
@@ -68,25 +67,22 @@ export default function WeddingPage() {
       {/* 2. Hero Section */}
       <HeroSection />
 
-      {/* 3. Celebration Timeline */}
-      <OrderOfEvents />
-
-      {/* 4. Venue & Hospitality */}
+      {/* 3. Venue & Hospitality */}
       <VenueDetails />
 
-      {/* 5. Pre-wedding Moments */}
+      {/* 4. Pre-wedding Moments */}
       <PreWeddingMoments />
 
-      {/* 6. Dress Code & Pastel Palette */}
+      {/* 5. Dress Code & Pastel Palette */}
       {/* <DressCodeSection /> */}
 
-      {/* 7. Personalised RSVP */}
+      {/* 6. Personalised RSVP */}
       <RSVPSection invitationViewed={countdownRevealed} />
 
-      {/* 8. Gift & Blessings */}
+      {/* 7. Gift & Blessings */}
       <GiftsBlessingsSection />
 
-      {/* 9. Thank You Screen */}
+      {/* 8. Thank You Screen */}
       <ThankYouSection onReopenEnvelope={handleReopenEnvelope} />
 
       {/* Sticky Floating Bottom Navigation */}
